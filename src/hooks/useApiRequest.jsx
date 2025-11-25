@@ -11,7 +11,7 @@ export const useApiRequest = (url) =>{
         data: null
     }
     const [responseApiState, setResponseApiState] = useState(initialResponseApiState)
-    const token = sessionStorage.getItem("authorization_token", "username"); // Obtiene el token del sessionStorage
+    const token = localStorage.getItem("authorization_token"); // Obtiene el token del sessionStorage
  
 
 

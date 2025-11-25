@@ -16,20 +16,19 @@ function App() {
     return (
         <div>
             <Routes>
-                {/* Redirección de / a /login */}
-                <Route path="/" element={<Navigate to="/login" />} />
-
-                {/* Auth */}
+                {/* Rutas publicas */}
                 <Route path="/login" element={<LoginScreen />} />
                 <Route path="/register" element={<RegisterScreen />} />
                 <Route path="/reset-password" element={<ResetPasswordScreen />} />
                 <Route path="/rewrite-password" element={<RewritePasswordScreen />} />
 
-                {/* App */}
-                <Route path="/home/:userId" element={<HomeScreen />} />
-                <Route path="/register-workspace" element={<CrearWorkspace />} />
-                <Route path="/workspace/:id" element={<WorkspaceScreen />} />
-
+                {/* Rutas protegidas */}
+                <Route element={<ProtectedRoute />}>
+                    <Route path="/home/:userId" element={<HomeScreen />} />
+                    <Route path="/register-workspace" element={<CrearWorkspace />} />
+                    <Route path="/workspace/:id" element={<WorkspaceScreen />} />
+                </Route>
+                
                 {/* Catch-all */}
                 <Route path="*" element={<Navigate to="/login" />} />
             </Routes>

@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/AuthContext'
 import '../styles/LoginScreen.css'
 
+
 const decodeJWT = (token) => {
 	try {
 		const base64Url = token.split('.')[1];
